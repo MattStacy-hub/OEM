@@ -12,10 +12,12 @@ You can monitor cloud resources by installing OEM agents on cloud hosts such as 
 2. Configuring the OEM Instance
 3. Creating a Named Credential (In OEM Console)
 4. Open Firewall in DBCS instance to Allow Traffic Through Port 3872
+5. Discovering Host Targets in the OEM Console
 
 # Walkthrough
 
 ## 1. Add Hostnames & Create Auth. Keys
 ## 2. Configure the OEM Instance
 ## 3. Create a Named Credential (In OEM Console)
-## 4. Open Firewall in DBCS instance to Allow Traffic Through Port 3872
+## 4. Open Firewall in DBCS Instance to Allow Traffic Through Port 3872
+## 5. Discover Host Targets
