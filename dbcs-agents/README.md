@@ -29,6 +29,7 @@ Create a new ssh key as oracle user
 * sudo su - oracle
 
 Add public key to authorized_keys for the oracle user
+
 Save private key to your computer
 
 ------------------------------------------------------
