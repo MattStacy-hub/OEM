@@ -17,9 +17,9 @@ You can monitor cloud resources by installing OEM agents on cloud hosts such as 
 # Walkthrough
 
 ## 1. Add Hostnames & Create Auth. Keys
-Add Hostnames (in both the OEM & DBCS instances)
+*Add Hostnames (in both the OEM & DBCS instances)*
 
-Ssh into DBCS Instance
+*Ssh into DBCS Instance*
 Create a new ssh key as oracle user
 
 ssh-keygen -t rsa -b 2048
@@ -34,8 +34,8 @@ Save private key to your computer
 ------------------------------------------------------
 Create Auth. Keys
 
-Add /etc/hosts
-IP of OEM
+Add to /etc/hosts
+ IP of OEM
 Run hostname if on OEM instance to get name
 <IP address>    emcc.marketplace.com
  
@@ -58,8 +58,45 @@ Create a new named credential on OEM console
 When adding target manually
   /home/oracle
 
-
 ## 2. Configure the OEM Instance
+
+(As root user)
+cd to /etc/ssh/sshd_config and open the file for editing
+Make sure the comments in that file appear as they do below
+ Uncomment pubkeyauthentication yes 
+ Uncomment password authentication yes
+ Comment out password authentication no
+Lock in sshd_config changes
+ sudo service sshd restart
+
 ## 3. Create a Named Credential (In OEM Console)
+
+Navigate to Setup —> Security —> Named Credentials
+Click Create
+Credential Details
+ Name: oracle
+ Credential type: SSH Key Credentials
+ Scope: global
+ Username: sysman
+ SSH private key: your key created in DBCS instance
+Name doesn’t matter
+
+
 ## 4. Open Firewall in DBCS Instance to Allow Traffic Through Port 3872
+
+*As root*
+ iptables -L | grep -i 3872
+ iptables-save > /tmp/iptables.orig
+ iptables -I INPUT 8 -p tcp -m state --state NEW -m tcp --dport 3872 -j ACCEPT -m comment - -comment “REQUIRED for EM OMS to talk to the agent.” 
+ 
+*Type command*
+ Service iptables status (This applies the new firewall rule)
+ 
+ "/sbin/service iptables save"
+*Change to oracle user*
+./emctl status agent
+then if you do the listtargets again, your output should look like:
+[mms:3872, oracle_emd]
+
+
 ## 5. Discover Host Targets
