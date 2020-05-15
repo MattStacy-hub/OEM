@@ -98,5 +98,32 @@ Name doesn’t matter
 then if you do the listtargets again, your output should look like:
 [mms:3872, oracle_emd]
 
+## 5. Discover Host Targets from OEM Console
 
-## 5. Discover Host Targets
+*Enable SQL Developer to connect to OMR w/o ssh host*
+opc@emcc ~]$ sudo firewall-cmd --zone=public --add-port=1521/tcp
+Success
+[opc@emcc ~]$ sudo firewall-cmd --zone=public --list-ports
+7803/tcp 4903/tcp 7301/tcp 9851/tcp 1521/tcp
+
+*Run sqlplus on OMR*
+sudo su - oracle
+vim .bash_profile
+
+*Edit so looks like:*
+cat /home/oracle/README.FIRST
+ORACLE_HOME=/u01/app/database/product
+PATH=$ORACLE_HOME/bin:$PATH
+LD_LIBRARY_PATH=$ORACLE_HOME/lib
+export ORACLE_HOME
+export LD_LIBRARY_PATH
+export PATH
+export TNS_ADMIN=$ORACLE_HOME/network/admin
+export ORACLE_SID=emrep
+
+
+
+
+
+
+
