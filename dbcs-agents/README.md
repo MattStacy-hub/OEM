@@ -111,7 +111,7 @@ Then if you do the listtargets again, your output should look like:
 
 *Enable SQL Developer to connect to OMR w/o ssh host*
 * opc@emcc ~]$ sudo firewall-cmd --zone=public --add-port=1521/tcp
-Success
+
 * [opc@emcc ~]$ sudo firewall-cmd --zone=public --list-ports
 7803/tcp 4903/tcp 7301/tcp 9851/tcp 1521/tcp
 
