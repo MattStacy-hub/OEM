@@ -22,11 +22,11 @@ You can monitor cloud resources by installing OEM agents on cloud hosts such as 
 *Ssh into DBCS Instance*
 Create a new ssh key as oracle user
 
-ssh-keygen -t rsa -b 2048
-"/home/opc/newKey/newKeyName"
-"/home/oracle/.ssh"
-create directory, auth_keys file, add ssh key there
-sudo su - oracle
+* ssh-keygen -t rsa -b 2048
+* "/home/opc/newKey/newKeyName"
+* "/home/oracle/.ssh"
+* create directory, auth_keys file, add ssh key there
+* sudo su - oracle
 
 Add public key to authorized_keys for the oracle user
 Save private key to your computer
@@ -34,9 +34,9 @@ Save private key to your computer
 ------------------------------------------------------
 Create Auth. Keys
 
-Add to /etc/hosts
- IP of OEM
-Run hostname if on OEM instance to get name
+* Add to /etc/hosts
+* IP of OEM
+ * Run hostname if on OEM instance to get name
 <IP address>    emcc.marketplace.com
  
 Sudo -su oracle
