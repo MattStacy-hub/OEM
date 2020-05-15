@@ -36,27 +36,27 @@ Create Auth. Keys
 
 * Add to /etc/hosts
 * IP of OEM
-  * Run hostname if on OEM instance to get name
-<IP address>    emcc.marketplace.com
+* Run hostname if on OEM instance to get name
+* <IP address>    emcc.marketplace.com
  
-Sudo -su oracle
-Create ssh key, add public to authorized keys for oracle user
-  Make sure ssh key has oracle user at end
-  Copy private key to own computer
-Change to root user
-Then go to /etc/ssh/sshd_config
-  Open that file
-  Search PubkeyAuthentication
-    Uncomment pubkeyauthentication yes
-  Search password authentication
-    Uncomment yes line
-  To lock in sshd_config changes
-    Sudo service sshd restart
-Create a new named credential on OEM console
-  Paste private key
-  Name doesn’t matter
-When adding target manually
-  /home/oracle
+* Sudo -su oracle
+* Create ssh key, add public to authorized keys for oracle user
+  * Make sure ssh key has oracle user at end
+  * Copy private key to own computer
+* Change to root user
+* Then go to /etc/ssh/sshd_config
+  * Open that file
+  * Search PubkeyAuthentication
+    * Uncomment pubkeyauthentication yes
+  * Search password authentication
+    * Uncomment yes line
+  * To lock in sshd_config changes
+    * Sudo service sshd restart
+* Create a new named credential on OEM console
+  * Paste private key
+  * Name doesn’t matter
+* When adding target manually
+  * /home/oracle
 
 ## 2. Configure the OEM Instance
 
