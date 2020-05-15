@@ -100,10 +100,12 @@ Create a new named credential on OEM console
 * Service iptables status (This applies the new firewall rule)
  
  "/sbin/service iptables save"
+
 *Change to oracle user*
-./emctl status agent
-then if you do the listtargets again, your output should look like:
-[mms:3872, oracle_emd]
+* ./emctl status agent
+
+Then if you do the listtargets again, your output should look like:
+* [mms:3872, oracle_emd]
 
 ## 5. Discover Host Targets from OEM Console
 
