@@ -36,7 +36,7 @@ Create Auth. Keys
 
 * Add to /etc/hosts
 * IP of OEM
- * Run hostname if on OEM instance to get name
+  * Run hostname if on OEM instance to get name
 <IP address>    emcc.marketplace.com
  
 Sudo -su oracle
