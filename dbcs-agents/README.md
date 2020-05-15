@@ -62,36 +62,42 @@ Create Auth. Keys
 ## 2. Configure the OEM Instance
 
 (As root user)
+
 cd to /etc/ssh/sshd_config and open the file for editing
+
 Make sure the comments in that file appear as they do below
- Uncomment pubkeyauthentication yes 
- Uncomment password authentication yes
- Comment out password authentication no
+ 
+* Uncomment pubkeyauthentication yes 
+* Uncomment password authentication yes
+* Comment out password authentication no
+
 Lock in sshd_config changes
- sudo service sshd restart
+* sudo service sshd restart
 
 ## 3. Create a Named Credential (In OEM Console)
+Create a new named credential on OEM console
 
-Navigate to Setup —> Security —> Named Credentials
-Click Create
-Credential Details
- Name: oracle
- Credential type: SSH Key Credentials
- Scope: global
- Username: sysman
- SSH private key: your key created in DBCS instance
-Name doesn’t matter
+* Navigate to Setup —> Security —> Named Credentials
+* Click Create
+* Credential Details
+ * Name: oracle
+ * Credential type: SSH Key Credentials
+ * Scope: global
+ * Username: sysman
+ * SSH private key: your key created in DBCS instance
+* Name doesn’t matter
 
 
 ## 4. Open Firewall in DBCS Instance to Allow Traffic Through Port 3872
 
 *As root*
- iptables -L | grep -i 3872
- iptables-save > /tmp/iptables.orig
- iptables -I INPUT 8 -p tcp -m state --state NEW -m tcp --dport 3872 -j ACCEPT -m comment - -comment “REQUIRED for EM OMS to talk to the agent.” 
+
+* iptables -L | grep -i 3872
+* iptables-save > /tmp/iptables.orig
+* iptables -I INPUT 8 -p tcp -m state --state NEW -m tcp --dport 3872 -j ACCEPT -m comment - -comment “REQUIRED for EM OMS to talk to the agent.” 
  
 *Type command*
- Service iptables status (This applies the new firewall rule)
+* Service iptables status (This applies the new firewall rule)
  
  "/sbin/service iptables save"
 *Change to oracle user*
