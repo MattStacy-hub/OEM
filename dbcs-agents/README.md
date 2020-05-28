@@ -19,9 +19,9 @@ You can monitor cloud resources by installing OEM agents on cloud hosts such as 
 ## 1. Add Hostnames
 Add Hostnames (in both the OEM & DBCS instances) **as root user**
 
-* Run "hostname" if on OEM instance to get name and the same goes for DBCS
-* Add to /etc/hosts
-  * add the hostname of the DBCS instance if you are shh'ed into OEM instance and vice versa
+* Run "hostname" to get name of the instance you are in
+* Add to /etc/hosts in the other instance
+  * DBCS hostname in OEM instance and vice versa
 
 ## 1.5 Create Auth. Keys
 
