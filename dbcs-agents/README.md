@@ -38,9 +38,10 @@ Create a new ssh key **as oracle user**
   * add the public ssh key that you just created
   * make sure ssh key has oracle user at end
   * copy private key to own computer
-  
-  
-* Then go to etc/ssh/sshd_config
+
+
+**As root user**
+* Go to etc/ssh/sshd_config
   * Open that file
   * Search PubkeyAuthentication
     * Uncomment pubkeyauthentication yes
