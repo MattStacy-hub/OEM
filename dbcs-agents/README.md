@@ -39,54 +39,21 @@ Create a new ssh key **as oracle user**
   * make sure ssh key has oracle user at end
   * copy private key to own computer
 
-
-**As root user**
-* Go to etc/ssh/sshd_config
-  * Open that file
-  * Search PubkeyAuthentication
-    * Uncomment pubkeyauthentication yes
-  * Search password authentication
-    * Uncomment yes line
-    * Comment out no line
-  * To lock in sshd_config changes
-    * sudo systemctl restart sshd (for Linux)
-* Create a new named credential on OEM console
-  * Paste private key
-  * Name doesn’t matter
-* When adding target manually
-  * /home/oracle
-
-
 ------------------------------------------------------
-
-* Then go to /etc/ssh/sshd_config
-  * Open that file
-  * Search PubkeyAuthentication
-    * Uncomment pubkeyauthentication yes
-  * Search password authentication
-    * Uncomment yes line
-  * To lock in sshd_config changes
-    * Sudo service sshd restart
-* Create a new named credential on OEM console
-  * Paste private key
-  * Name doesn’t matter
-* When adding target manually
-  * /home/oracle
 
 ## 2. Configure the OEM Instance
 
-(As root user)
-
-cd to /etc/ssh/sshd_config and open the file for editing
+**As root user**
+* Go to etc/ssh/sshd_config and open the file for editing
 
 Make sure the comments in that file appear as they do below
- 
 * Uncomment pubkeyauthentication yes 
 * Uncomment password authentication yes
 * Comment out password authentication no
+  * To lock in sshd_config changes write to and quit the sshd_config file
+    * run "sudo systemctl restart sshd" (for Linux)
 
-Lock in sshd_config changes
-* sudo service sshd restart
+------------------------------------------------------
 
 ## 3. Create a Named Credential (In OEM Console)
 Create a new named credential on OEM console
@@ -100,6 +67,16 @@ Create a new named credential on OEM console
  * Username: sysman
  * SSH private key: your key created in DBCS instance
 * Name doesn’t matter
+
+
+
+
+
+* Create a new named credential on OEM console
+  * Paste private key that you create in DBCS earlier
+  * Name doesn’t matter
+* When adding target manually
+  * /home/oracle
 
 
 ## 4. Open Firewall in DBCS Instance to Allow Traffic Through Port 3872
