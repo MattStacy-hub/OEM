@@ -11,8 +11,8 @@ You can monitor cloud resources by installing OEM agents on cloud hosts such as 
 1. Adding Hostnames & Creating Auth. Keys
 2. Configuring the OEM Instance
 3. Creating a Named Credential (In OEM Console)
-4. Open Firewall in DBCS instance to Allow Traffic Through Port 3872
-5. Discovering Host Targets in the OEM Console
+4. Discovering Host Targets (In OEM Console)
+5. Open Firewall in DBCS instance to Allow Traffic Through Port 3872
 
 # Walkthrough
 
@@ -63,26 +63,7 @@ Make sure the comments in that file appear as they do below
  * Username: sysman
  * SSH private key: your key created in DBCS instance
 
-## 4. Open Firewall in DBCS Instance to Allow Traffic Through Port 3872
-
-**As root user**
-
-* iptables -L | grep -i 3872
-* iptables-save > /tmp/iptables.orig
-* iptables -I INPUT 8 -p tcp -m state --state NEW -m tcp --dport 3872 -j ACCEPT -m comment --comment "Required for EM OMS to talk to the Agent."
- 
-*Type these commands*
-* service iptables status 
-  * this applies the new firewall rule
-* /sbin/service iptables save
-
-**Change to Oracle user**
-* ./emctl status agent
-
-Then if you do the listtargets again, your output should look like:
-* [mms:3872, oracle_emd]
-
-## 5. Discover Host Targets from OEM Console
+## 4. Discover Host Targets from OEM Console
 
 * When adding target manually
   * /home/oracle
@@ -111,3 +92,23 @@ Then if you do the listtargets again, your output should look like:
 * export PATH
 * export TNS_ADMIN=$ORACLE_HOME/network/admin
 * export ORACLE_SID=emrep
+
+
+## 5. Open Firewall in DBCS Instance to Allow Traffic Through Port 3872
+
+**As root user**
+
+* iptables -L | grep -i 3872
+* iptables-save > /tmp/iptables.orig
+* iptables -I INPUT 8 -p tcp -m state --state NEW -m tcp --dport 3872 -j ACCEPT -m comment --comment "Required for EM OMS to talk to the Agent."
+ 
+*Type these commands*
+* service iptables status 
+  * this applies the new firewall rule
+* /sbin/service iptables save
+
+**Change to Oracle user**
+* ./emctl status agent
+
+Then if you do the listtargets again, your output should look like:
+* [mms:3872, oracle_emd]
