@@ -25,8 +25,9 @@ Add Hostnames (in both the OEM & DBCS instances) **as root user**
 
 *Ssh into DBCS Instance*
 
-Create a new ssh key as oracle user
+Create a new ssh key **as oracle user**
 
+* sudo su - oracle
 * ssh-keygen -t rsa -b 2048
 * "/home/opc/newKey/newKeyName"
 * "/home/oracle/.ssh"
