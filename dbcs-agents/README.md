@@ -33,8 +33,8 @@ Create a new ssh key **as oracle user**
 * choose whether you want a passphrase or not
 * navigate to /home/oracle/.ssh
 * cd to .ssh once you are in the oracle folder (you might not see the .ssh folder when you use the ls command)
-* vim autherized_key
- *  add ssh key there
+* vim authorized_keys
+ * add public ssh key
 
 
 Add public key to authorized_keys for the oracle user
