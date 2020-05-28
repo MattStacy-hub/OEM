@@ -34,7 +34,7 @@ Create a new ssh key **as oracle user**
 * navigate to /home/oracle/.ssh
 * cd to .ssh once you are in the oracle folder (you might not see the .ssh folder when you use the ls command)
 * vim authorized_keys
- * add public ssh key
+  * add the public ssh key that you just created
 
 
 Add public key to authorized_keys for the oracle user
