@@ -52,8 +52,7 @@ Make sure the comments in that file appear as they do below
 * To lock in sshd_config changes write and quit the sshd_config file
     * run "sudo systemctl restart sshd" (for Linux)
 
-## 3. Create a Named Credential (In OEM Console)
-Create a new named credential on OEM console
+## 3. Create a Named Credential (In the OEM Console)
 
 * Navigate to Setup —> Security —> Named Credentials
 * Click Create
@@ -70,14 +69,14 @@ Create a new named credential on OEM console
 
 * iptables -L | grep -i 3872
 * iptables-save > /tmp/iptables.orig
-* iptables -I INPUT 8 -p tcp -m state --state NEW -m tcp --dport 3872 -j ACCEPT -m comment - -comment “REQUIRED for EM OMS to talk to the agent.” 
+* iptables -I INPUT 8 -p tcp -m state --state NEW -m tcp --dport 3872 -j ACCEPT -m comment --comment "Required for EM OMS to talk to the Agent."
  
-*Type command*
-* Service iptables status (This applies the new firewall rule)
- 
- "/sbin/service iptables save"
+*Type these commands*
+* service iptables status 
+  * this applies the new firewall rule
+* /sbin/service iptables save
 
-*Change to oracle user*
+**Change to Oracle user**
 * ./emctl status agent
 
 Then if you do the listtargets again, your output should look like:
