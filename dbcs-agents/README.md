@@ -47,8 +47,9 @@ Create a new ssh key **as oracle user**
     * Uncomment pubkeyauthentication yes
   * Search password authentication
     * Uncomment yes line
+    * Comment out no line
   * To lock in sshd_config changes
-    * Sudo service sshd restart
+    * sudo systemctl restart sshd (for Linux)
 * Create a new named credential on OEM console
   * Paste private key
   * Name doesn’t matter
