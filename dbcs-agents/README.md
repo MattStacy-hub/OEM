@@ -16,44 +16,48 @@ You can monitor cloud resources by installing OEM agents on cloud hosts such as 
 
 # Walkthrough
 
-## 1. Add Hostnames & Create Auth. Keys
+## 1. Add Hostnames
 Add Hostnames (in both the OEM & DBCS instances) **as root user**
 
-* Navigate to etc folder
+* Run "hostname" if on OEM instance to get name and the same goes for DBCS
+* Add to /etc/hosts
 * vim hosts
  * add the hostname of the DBCS instance if you are shh'ed into OEM instance and vice versa
 
-*Ssh into DBCS Instance*
+## 1.5 Create Auth. Keys
 
 Create a new ssh key **as oracle user**
 
+* ssh into DBCS Instance
 * sudo su - oracle
 * ssh-keygen -t rsa -b 2048
 * "/home/oracle/.ssh/chooseyournewkeyname"
 * choose whether you want a passphrase or not
 * navigate to /home/oracle/.ssh
-* cd to .ssh once you are in the oracle folder (you might not see the .ssh folder when you use the ls command)
+  * cd to .ssh once you are in the oracle folder (you might not see the .ssh folder when you use the ls command)
 * vim authorized_keys
   * add the public ssh key that you just created
+  * make sure ssh key has oracle user at end
+  * copy private key to own computer
+  
+  
+* Then go to etc/ssh/sshd_config
+  * Open that file
+  * Search PubkeyAuthentication
+    * Uncomment pubkeyauthentication yes
+  * Search password authentication
+    * Uncomment yes line
+  * To lock in sshd_config changes
+    * Sudo service sshd restart
+* Create a new named credential on OEM console
+  * Paste private key
+  * Name doesn’t matter
+* When adding target manually
+  * /home/oracle
 
-
-Add public key to authorized_keys for the oracle user
-
-Save private key to your computer
 
 ------------------------------------------------------
-Create Auth. Keys
 
-* Add to /etc/hosts
-* IP of OEM
-* Run hostname if on OEM instance to get name
-* <IP address>    emcc.marketplace.com
- 
-* Sudo -su oracle
-* Create ssh key, add public to authorized keys for oracle user
-  * Make sure ssh key has oracle user at end
-  * Copy private key to own computer
-* Change to root user
 * Then go to /etc/ssh/sshd_config
   * Open that file
   * Search PubkeyAuthentication
