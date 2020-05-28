@@ -58,27 +58,15 @@ Create a new named credential on OEM console
 * Navigate to Setup —> Security —> Named Credentials
 * Click Create
 * Credential Details
- * Name: oracle
+ * Name: yourchoice (I use "oracle")
  * Credential type: SSH Key Credentials
  * Scope: global
  * Username: sysman
  * SSH private key: your key created in DBCS instance
-* Name doesn’t matter
-
-
-
-
-
-* Create a new named credential on OEM console
-  * Paste private key that you create in DBCS earlier
-  * Name doesn’t matter
-* When adding target manually
-  * /home/oracle
-
 
 ## 4. Open Firewall in DBCS Instance to Allow Traffic Through Port 3872
 
-*As root*
+**As root user**
 
 * iptables -L | grep -i 3872
 * iptables-save > /tmp/iptables.orig
@@ -96,6 +84,13 @@ Then if you do the listtargets again, your output should look like:
 * [mms:3872, oracle_emd]
 
 ## 5. Discover Host Targets from OEM Console
+
+* When adding target manually
+  * /home/oracle
+
+
+
+-----------------------------------------------------
 
 *Enable SQL Developer to connect to OMR w/o ssh host*
 * opc@emcc ~]$ sudo firewall-cmd --zone=public --add-port=1521/tcp
