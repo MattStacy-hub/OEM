@@ -39,7 +39,7 @@ Create a new ssh key **as oracle user**
   * make sure ssh key has oracle user at end
   * copy private key to own computer
 
-## 2. Configure the OEM Instance
+## 2. Configure your OEM Instance
 
 **As root user**
 * Go to etc/ssh/sshd_config and open the file for editing
