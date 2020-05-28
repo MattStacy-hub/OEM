@@ -39,8 +39,6 @@ Create a new ssh key **as oracle user**
   * make sure ssh key has oracle user at end
   * copy private key to own computer
 
-------------------------------------------------------
-
 ## 2. Configure the OEM Instance
 
 **As root user**
@@ -52,8 +50,6 @@ Make sure the comments in that file appear as they do below
 * Comment out password authentication no
   * To lock in sshd_config changes write to and quit the sshd_config file
     * run "sudo systemctl restart sshd" (for Linux)
-
-------------------------------------------------------
 
 ## 3. Create a Named Credential (In OEM Console)
 Create a new named credential on OEM console
