@@ -30,7 +30,7 @@ Create a new ssh key **as oracle user**
 * ssh into DBCS Instance
 * sudo su - oracle
 * ssh-keygen -t rsa -b 2048
-* "/home/oracle/.ssh/chooseyournewkeyname"
+* "/home/oracle/.ssh/chooseyourkeyname"
 * choose whether you want a passphrase or not
 * navigate to /home/oracle/.ssh
   * cd to .ssh once you are in the oracle folder (you might not see the .ssh folder when you use the ls command)
@@ -47,8 +47,9 @@ Create a new ssh key **as oracle user**
 Make sure the comments in that file appear as they do below
 * Uncomment pubkeyauthentication yes 
 * Uncomment password authentication yes
-* Comment out password authentication no
-  * To lock in sshd_config changes write to and quit the sshd_config file
+* Comment password authentication no
+
+* To lock in sshd_config changes write and quit the sshd_config file
     * run "sudo systemctl restart sshd" (for Linux)
 
 ## 3. Create a Named Credential (In OEM Console)
