@@ -17,7 +17,7 @@ You can monitor cloud resources by installing OEM agents on cloud hosts such as 
 # Walkthrough
 
 ## 1. Add Hostnames & Create Auth. Keys
-*Add Hostnames (in both the OEM & DBCS instances) **as root user**
+Add Hostnames (in both the OEM & DBCS instances) **as root user**
 
 * Navigate to etc folder
 * vim hosts
