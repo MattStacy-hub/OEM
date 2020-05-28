@@ -21,7 +21,6 @@ Add Hostnames (in both the OEM & DBCS instances) **as root user**
 
 * Run "hostname" if on OEM instance to get name and the same goes for DBCS
 * Add to /etc/hosts
-* vim hosts
  * add the hostname of the DBCS instance if you are shh'ed into OEM instance and vice versa
 
 ## 1.5 Create Auth. Keys
