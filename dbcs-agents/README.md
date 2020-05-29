@@ -23,7 +23,7 @@ Add Hostnames (in both the OEM & DBCS instances) **as root user**
 * Add to /etc/hosts in the other instance
   * DBCS hostname in OEM instance and vice versa
 
-## 1.5 Create Auth. Keys
+## 1.1 Create Auth. Keys
 
 Create a new ssh key **as oracle user**
 
@@ -38,6 +38,15 @@ Create a new ssh key **as oracle user**
   * add the public ssh key that you just created
   * make sure ssh key has oracle user at end
   * copy private key to own computer
+  
+## 1.2 Create Folder for Agent
+
+**As Oracle user**
+
+* ssh into DBCS Instance
+* go to /home/oracle
+* Create a new folder for the agent
+
 
 ## 2. Configure your OEM Instance
 
@@ -64,6 +73,19 @@ Make sure the comments in that file appear as they do below
  * SSH private key: your key created in DBCS instance
 
 ## 4. Discover Host Targets from OEM Console
+
+* Navigate to Setup -> Add Target -> Add Target Manually
+* Click Install Agent on Host
+  * Add
+  * Host text box: Database hostname
+  * Platform: Linux x86-64
+  * Next
+
+* Installation Base Directory: /home/oracle/newfoldername
+* Instance Directory: automatically created for you
+* Named Credential: Named credential you creted earlier
+* Next
+* Deploy Agent
 
 
 ## 5. Open Firewall in DBCS Instance to Allow Traffic Through Port 3872
